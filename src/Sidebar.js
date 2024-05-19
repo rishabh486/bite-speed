@@ -8,17 +8,30 @@ const Sidebar = () => {
 
     return (
         <aside>
-            <div className="description">
-                You can drag these nodes to the pane on the right.
-            </div>
             <div
                 className="dndnode input"
-                onDragStart={(event) => onDragStart(event, "input")}
+                onDragStart={(event) => onDragStart(event, "textUpdater")}
                 draggable
+                style={{
+                    width: '150px',
+                    height: '50px'
+                }}
             >
-                Input Node
+                <div
+                    style={{
+                        backgroundColor: "#ffffff",
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        cursor: "pointer",
+                    }}
+                >
+                    Message Box
+                </div>
+
             </div>
-            <div
+            {/* <div
                 className="dndnode"
                 onDragStart={(event) => onDragStart(event, "default")}
                 draggable
@@ -31,7 +44,7 @@ const Sidebar = () => {
                 draggable
             >
                 Output Node
-            </div>
+            </div> */}
         </aside>
     );
 };

@@ -12,11 +12,12 @@ import 'reactflow/dist/style.css';
 
 import Sidebar from './Sidebar';
 import './style.css';
+import TextUpdaterNode from './CustomNode';
 
 const initialNodes = [
   {
     id: '1',
-    type: 'input',
+    type: 'textUpdater',
     data: { label: 'input node' },
     position: { x: 250, y: 5 },
   },
@@ -24,7 +25,7 @@ const initialNodes = [
 
 let id = 0;
 const getId = () => `dndnode_${id++}`;
-
+const nodeTypes = { textUpdater: TextUpdaterNode };
 const DnDFlow = () => {
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -161,6 +162,7 @@ const DnDFlow = () => {
             onDrop={onDrop}
             onDragOver={onDragOver}
             fitView
+            nodeTypes={nodeTypes}
           >
             <Background color="#99b3ec" variant={variant} />
             <Controls />
